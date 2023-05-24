@@ -29,24 +29,27 @@ const AvailabilityCalendar = () => {
 
   return (
     <div className="availability-calendar-container">
-      <h2 className="textdata">Availability Calendar</h2>
-      <div className="calendar-wrapper">
-        <DatePicker
-          selected={selectedDateTime}
-          onChange={handleDateTimeChange}
-          showTimeSelect
-          timeFormat="HH:mm"
-          timeIntervals={15}
-          dateFormat="MMMM d, yyyy h:mm aa"
-          inline
-          minDate={currentDate}
-          multiple
-        />
-      </div>
-      <div className="selected-info">
-        <p>Selected Date: {displayedDate}</p>
-        <p>Selected Time: {displayedTime}</p>
-      </div>
+      <h2 className="textdata">Book your slot</h2>
+      <section className="d-flex">
+        <div className="calendar-wrapper">
+          <DatePicker
+            selected={selectedDateTime}
+            onChange={handleDateTimeChange}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={15}
+            dateFormat="MMMM d, yyyy h:mm aa"
+            inline
+            minDate={currentDate}
+            multiple
+            timeZone="asia/kolkata"
+          />
+        </div>
+        <div className="selected-info">
+          <p>Selected Date: {displayedDate}</p>
+          <p>Selected Time: {displayedTime}</p>
+        </div>
+      </section>
     </div>
   );
 };
