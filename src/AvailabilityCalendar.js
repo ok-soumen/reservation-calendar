@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment-timezone'; // Import the moment-timezone library
 import './availability-calendar.css'; // Import the CSS file
 
 const AvailabilityCalendar = () => {
@@ -18,10 +19,9 @@ const AvailabilityCalendar = () => {
       year: 'numeric'
     });
 
-    const formattedTime = date.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: '2-digit'
-    });
+     const formattedTime = moment(date)
+      .tz('Asia/Kolkata') // Set the timezone to IST
+      .format('h:mm A');
 
     setDisplayedDate(formattedDate);
     setDisplayedTime(formattedTime);
